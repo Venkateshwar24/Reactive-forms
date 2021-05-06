@@ -1,0 +1,34 @@
+<mat-toolbar color="primary">
+  <button mat-button>
+    <mat-icon >people</mat-icon>
+  </button>
+  
+<span  style="text-align: center;" >CUSTOMER DETAILS</span>
+</mat-toolbar>
+<div class="mat-display-2 mt-5" style="text-align: center;" >Customers Summary</div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col"> Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">EmailId </th>
+        <th scope="col"> MobileNumber  </th>
+        <th scope="col">Website </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <td>{{customer.id}}</td>
+        <td>{{customer.name}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.phone}}</td>
+        <td>{{customer.website}}</td>
+        <td>
+          <a [routerLink]="['/Customerss',customer.id]">
+            <button mat-button mat-raised-button color="primary">View details</button></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
