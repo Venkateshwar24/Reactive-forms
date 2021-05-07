@@ -9,6 +9,7 @@ import { CustomerViewComponent } from './customer-view/customer-view.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerService } from './customer.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -25,7 +26,8 @@ import { CustomerService } from './customer.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
    
   ],
   providers: [CustomerService],

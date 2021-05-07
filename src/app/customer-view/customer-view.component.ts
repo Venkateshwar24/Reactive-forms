@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { CustomerService } from '../customer.service';
 
 
@@ -12,7 +13,8 @@ import { customer } from '../customers';
 export class CustomerViewComponent implements OnInit {
   public customers: customer[] = [];
   // Customers=customers;
-  constructor(private customerService: CustomerService) { }
+  constructor(private customerService: CustomerService,
+    private fb:FormBuilder) { }
 
   async ngOnInit() {
     await this.customerService.getDetails().then((res: any) => {
@@ -21,4 +23,19 @@ export class CustomerViewComponent implements OnInit {
       }
     });
   }
+  dateForm=this.fb.group({
+    dob:[''],
+    age:['']
+  });
+
+todayDate=new Date();
+year=this.todayDate.getFullYear();
+inAge=this.dateForm.get('age');
+inDob=this.dateForm.get('dob');
+//yearindate=this.inDob.value.split("");
+//val=this.yearindate[14];
+agecalci()
+{
+  this.inAge.patchValue(this.inDob.value);
+}
 }
